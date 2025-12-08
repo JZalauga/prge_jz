@@ -1,9 +1,19 @@
-import './App.css';
+import './styles/style.scss';
+import { Suspense } from 'react';
+import { RouterProvider } from "react-router-dom";
+import { CircularProgress } from '@mui/material';
+import routes from "./routes/Router";
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Suspense 
+      fallback={<CircularProgress  color = "red" />}>
+        <RouterProvider router={routes} />
+      </Suspense>
       
+
     </div>
   );
 }
