@@ -22,7 +22,7 @@ jobs:
         working-directory: config/node/frontend
 
     steps:
-      - name: Checkout
+      - name: Checkout1
         uses: actions/checkout@v4
 
       - name: Setup Node
