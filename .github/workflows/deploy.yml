@@ -32,7 +32,7 @@ jobs:
           cashe: nmp
           cache-dependency-path: config/node/frontend/package-lock.json
       
-      - name Install dependencies
+      - name: Install dependencies
         run: npm cl
 
       - name: Build
