@@ -25,14 +25,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup: Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cashe: nmp
           cache-dependency-path: config/node/frontend/package-lock.json
       
-      - name Install dependencies
+      - name: Install dependencies
         run: npm cl
 
       - name: Build
