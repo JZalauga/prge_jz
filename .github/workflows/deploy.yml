@@ -5,13 +5,13 @@ on:
     branches:
       -main
 
-permisios:
+permision:
   contents: read
   pages: write
   id-token: write
 
 concurrency:
-  groups: "pages"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -39,12 +39,12 @@ jobs:
         run: npm run build
 
       - name: Upload artifacts
-        users: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           path: config/node/frontend/build
 
   deploy:
-    enviroment:
+    environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
     runs-on: ubuntu-latest
@@ -53,4 +53,4 @@ jobs:
     steps:
       - name: Deploy to gh pages
         id: deployment
-        users: actions/deploy-page@v4
+        uses: actions/deploy-page@v4
