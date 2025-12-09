@@ -5,23 +5,23 @@ const routes = createBrowserRouter
 (
     [
         {
-            path: '/',
+            path: '/prge_jz/',
             element: <Home/>
         },
         {
-            path: '/about',
+            path: '/prge_jz/about',
             element: <About/>
         },
                 {
-            path: '/map',
+            path: '/prge_jz/map',
             element: <Map/>
         },
                 {
-            path: '/services',
+            path: '/prge_jz/services',
             element: <Services/>
         },
                 {
-            path: '/list',
+            path: '/prge_jz/list',
             element: <ListOfItems/>
         },
         {
