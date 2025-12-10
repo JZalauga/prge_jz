@@ -5,23 +5,23 @@ const routes = createHashRouter
 (
     [
         {
-            path: '/prge_jz/',
+            path: '/',
             element: <Home/>
         },
         {
-            path: '/prge_jz/about',
+            path: '/about',
             element: <About/>
         },
                 {
-            path: '/prge_jz/map',
+            path: '/map',
             element: <Map/>
         },
                 {
-            path: '/prge_jz/services',
+            path: '/services',
             element: <Services/>
         },
                 {
-            path: '/prge_jz/list',
+            path: '/list',
             element: <ListOfItems/>
         },
         {
