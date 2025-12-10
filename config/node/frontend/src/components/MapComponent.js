@@ -1,14 +1,16 @@
-import React, { useRef, useEffect, use } from "react";
-import Map from "ol/Map.js";
-import View from "ol/View.js";
-import TileLayer from "ol/layer/Tile.js";
-import OSM from "ol/source/OSM.js";
+import React, {useRef, useEffect} from "react";
+import Map from 'ol/Map.js';
+import OSM from 'ol/source/OSM.js';
+import TileLayer from 'ol/layer/Tile.js';
+import View from 'ol/View.js';
 import { useGeographic } from "ol/proj";
-import "ol/ol.css";
+import "ol/ol.css"
+
 
 function MapComponent(props) {
-  useGeographic();
-  const mapRef = useRef(null);
+    useGeographic();
+    const mapRef = useRef(null);
+
   useEffect(() => {
     const map = new Map({
       target: mapRef.current,
