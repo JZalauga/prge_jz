@@ -38,7 +38,7 @@ async def insert_user():
         print(e)
         raise e
 
-    return {"statu": 1}n
+    return {"statu": 1}
 
 
 """
