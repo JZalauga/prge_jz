@@ -1,12 +1,13 @@
-x-environment: 
+x-environment:
+  #DB
   - &env-postgres-db POSTGRES_DB=${POSTGRES_DB}
   - &env-postgres-user POSTGRES_USER=${POSTGRES_USER}
   - &env-postgres-password POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
-services: 
+services:
   postgis:
     build:
-      context: .. 
+      context: ..
       dockerfile: docker/postgis/Dockerfile
     image: 'prge_2025_postgis'
     container_name: 'prge_2025_postgis'
@@ -21,10 +22,10 @@ services:
 
   geoserver:
     build:
-      context: .. 
+      context: ..
       dockerfile: docker/geoserver/Dockerfile
-    image: "prge_2025_geoserver"
-    container_name: "prge_2025_geoserver"
+    image: 'prge_2025_geoserver'
+    container_name: 'prge_2025_geoserver'
     ports:
       - 9000:8080
     volumes:
@@ -33,10 +34,14 @@ services:
     
   fastapi:
     build:
-      context: .. 
+      context: ..
       dockerfile: docker/fastapi/Dockerfile
-    image: "prge_2025_fastapi"
-    container_name: "prge_2025_fastapi"
+    image: 'prge_2025_fastapi'
+    container_name: 'prge_2025_fastapi'
+    environment:
+      - *env-postgres-db
+      - *env-postgres-user
+      - *env-postgres-password
     ports:
       - 10000:10000
 
