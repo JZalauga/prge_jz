@@ -28,4 +28,4 @@ jobs:
           POSTGRES_USER: ${{secrets.POSTGRES_USER}}
           POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
         run: |
-          docker-compose -f ./docker-compose/docker-compose-remote.yml -p remote-prge up --build -d
+          export BUILDKIT_PROGRESS=plain docker-compose -f ./docker-compose/docker-compose-remote.yml -p remote-prge up --build -d
