@@ -50,7 +50,7 @@ services:
     image: 'prge_2025_nginx'
     container_name: 'prge_2025_nginx-${ENV_NAME}'
     ports:
-      - 8090:80
+      - 8095:80
 
 
 volumes:
