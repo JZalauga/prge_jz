@@ -4,13 +4,12 @@ function ListOfItems(props)
 {
     const [users, setUsers] = useState([]);
 
-
     useEffect(() => {
         //"https://localhost:8000/app/get_users"
         fetch("http://localhost:10000/app/get_users")
         .then(res => res.json())
         .then(res => {console.log(res) 
-        setUsers(res)})
+        setUsers(res.users)})
 
         console.log("działa")
         
