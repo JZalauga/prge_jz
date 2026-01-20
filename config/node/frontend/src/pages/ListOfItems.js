@@ -16,6 +16,7 @@ function ListOfItems(props)
         
         console.log("To jest mój user i jego zawartość", users)
     }, []);
+    useEffect(() => {}, [users]);
 
     
 
