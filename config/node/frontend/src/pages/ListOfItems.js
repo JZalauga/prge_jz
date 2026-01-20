@@ -8,11 +8,9 @@ function ListOfItems(props)
         //"https://localhost:8000/app/get_users"
         fetch("http://localhost:10000/app/get_users")
         .then(res => res.json())
-        .then(res => {console.log(res) 
-        setUsers(res.users)})
-
-        console.log("działa")
-        
+        .then(res => {console.log(res);
+        setUsers(res.users);
+    });
         console.log("To jest mój user i jego zawartość", users)
     }, []);
     useEffect(() => {}, [users]);
