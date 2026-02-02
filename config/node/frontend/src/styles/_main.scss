@@ -1,20 +1,65 @@
-.app
-{
-    background: $background-color;
-    color: $secondary-color;
-    height: 100vh;
-    font-family: 'Science Gothic';
+.home {
+  background-color: $background-color;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 
-    @include flex-center;
+  &__title {
+    color: $text-color;
+    font-weight: 700;
+    font-size: clamp(2rem, 10vw, 4rem); 
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
 
-    .home__button
-    {
-        color: 'blue';
-        width: 'fit-content';
-    }
+  
 }
 
-.mapComponent{
-    height: 100vh;
-    width: 100vw;
+.services {
+  background-color: $background-color;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  &__grid {
+    display: flex; // Flexbox zamiast Grida dla prostszego wyrównania 4 obok siebie
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    justify-content: center;
+    flex-wrap: nowrap; // Wymusza bycie w jednej linii
+  }
+
+  &__card {
+    flex: 1; 
+    min-width: 200px; 
+    background-color: transparent !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+
+    .card-image {
+      width: 100%;
+      height: 200px; 
+      object-fit: cover;
+      display: block;
+      background-color: #333;
+    }
+
+    .card-label {
+      background-color: $text-color;
+      color: $background-color;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
 }
