@@ -5,6 +5,7 @@ from app.settings import db_name, db_user, db_password
 
 router_get_cemeteries = APIRouter()
 router_get_workers = APIRouter()
+router_get_clients = APIRouter()
 
 def connect_to_db(db_name: str, db_user: str, db_password: str):
     return create_engine(
@@ -53,3 +54,23 @@ async def get_users():
         print("Błąd podczas pobierania użytkowników:")
         return {"status": str(e),}
 
+
+@router_get_clients.get("/get_client")
+async def get_users():
+    try:
+        db_connection = connect_to_db(db_name=db_name, db_user=db_user, db_password=db_password)
+
+        sql_query = text("""
+                         select * from client; 
+                         """)
+
+        with db_connection.connect() as conn:
+            result = conn.execute(sql_query)
+            users = [dict(row._mapping) for row in result]
+        
+        return {"status": "success", "data": users}
+
+
+    except Exception as e:
+        print("Błąd podczas pobierania użytkowników:")
+        return {"status": str(e),}
