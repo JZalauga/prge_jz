@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 from app.settings import db_name, db_user, db_password
 
 
-router_get_users = APIRouter()
+router_get_cemeteries = APIRouter()
 
 def connect_to_db(db_name: str, db_user: str, db_password: str):
     return create_engine(
@@ -11,14 +11,14 @@ def connect_to_db(db_name: str, db_user: str, db_password: str):
     )
 
 
-@router_get_users.get("/get_users")
+@router_get_cemeteries.get("/get_cemetery")
 
 async def get_users():
     try:
         db_connection = connect_to_db(db_name=db_name, db_user=db_user, db_password=db_password)
 
         sql_query = text("""
-                         select * from users; 
+                         select * from cemetery; 
                          """)
 
         with db_connection.connect() as conn:
