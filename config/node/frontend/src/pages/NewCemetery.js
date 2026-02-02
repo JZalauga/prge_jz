@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Paper, Box, Alert } from '@mui/material';
 
-const NewUser = () => {
+const NewCemetery = () => {
     const [formData, setFormData] = useState({
         name: '',
-        posts: 0,
         location: ''
     });
     const [status, setStatus] = useState({ type: '', message: '' });
@@ -13,7 +12,7 @@ const NewUser = () => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: name === 'posts' ? parseInt(value) || 0 : value
+            [name]: value,
         });
     };
 
@@ -22,7 +21,7 @@ const NewUser = () => {
         setStatus({ type: 'info', message: 'Wysyłanie...' });
 
         try {
-            const response = await fetch('http://localhost:10000/app/insert_user', {
+            const response = await fetch('http://localhost:10000/app/insert_cemetery', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +31,7 @@ const NewUser = () => {
 
             if (response.ok) {
                 setStatus({ type: 'success', message: 'Użytkownik dodany pomyślnie!' });
-                setFormData({ name: '', posts: 0, location: '' }); // Reset formularza
+                setFormData({ name: '', location: '' }); // Reset formularza
             } else {
                 throw new Error('Błąd serwera podczas dodawania');
             }
@@ -42,30 +41,20 @@ const NewUser = () => {
     };
 
     return (
-        <Container maxWidth="sm" sx={{ mt: 8 }}>
-            <Paper elevation={3} sx={{ p: 4 }}>
-                <Typography variant="h5" gutterBottom align="center">
-                    Dodaj Nowego Użytkownika
+        <Box className="new-cemetery-page">
+                <Typography variant="h5" className = "new-cemetery-page__title" gutterBottom align="center">
+                    Dodaj cmentarz
                 </Typography>
 
                 <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
                     <TextField
                         fullWidth
-                        label="Imię / Nazwa"
+                        label="Nazwa"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         margin="normal"
-                        required
-                    />
-                    <TextField
-                        fullWidth
-                        label="Liczba postów"
-                        name="posts"
-                        type="number"
-                        value={formData.posts}
-                        onChange={handleChange}
-                        margin="normal"
+                        className="new-cemetery-page__textfield"
                         required
                     />
                     <TextField
@@ -75,6 +64,7 @@ const NewUser = () => {
                         value={formData.location}
                         onChange={handleChange}
                         margin="normal"
+                        className="new-cemetery-page__textfield"
                         required
                     />
 
@@ -82,10 +72,10 @@ const NewUser = () => {
                         type="submit"
                         fullWidth
                         variant="contained"
+                        className="new-cemetery-page__submit"
                         color="primary"
-                        sx={{ mt: 3, mb: 2 }}
                     >
-                        Wyślij do bazy
+                        Zapisz
                     </Button>
 
                     {status.message && (
@@ -94,9 +84,8 @@ const NewUser = () => {
                         </Alert>
                     )}
                 </Box>
-            </Paper>
-        </Container>
+        </Box>
     );
 };
 
-export default NewUser;
+export default NewCemetery;
