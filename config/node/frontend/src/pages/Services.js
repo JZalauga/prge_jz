@@ -5,10 +5,10 @@ import {Link} from "react-router-dom";
 //D:\UCZELNIA\semestr_5\prge\projekt\prge_jz\config\node\frontend\public\images\cemeteries.png
 const serviceList = [
   { id: 1, title: 'Geoportal', img: '../../public/images/geoportal.png', path: '/map' },
-  { id: 2, title: 'Cmentarze', img: '/images/geoportal.png', path: '/cemeteries' }, // Zmień na właściwy plik, gdy go dodasz!
+  { id: 2, title: 'Cmentarze', img: '/images/geoportal.png', path: '/cemeteries' },
   { id: 3, title: 'Pracownicy', img: '/images/workers.png', path: '/workers' },
   { id: 4, title: 'Klienci', img: '/images/clients.png', path: '/clients' },
-];;
+];
 
 function Services(props) {
   return (
