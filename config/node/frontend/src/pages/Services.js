@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, Card, CardMedia, CardActionArea } from "@mui/material";
+import {Box, Card, CardActionArea } from "@mui/material";
 import {Link} from "react-router-dom";
 
 //D:\UCZELNIA\semestr_5\prge\projekt\prge_jz\config\node\frontend\public\images\cemeteries.png
