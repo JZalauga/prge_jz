@@ -32,12 +32,11 @@ def get_coord_osm(location: str) -> list[float]:
 
 class UserData(BaseModel):
     name: str
-    posts: int
     location: str
 
 
 
-@router_insert.post("/insert_user")
+@router_insert.post("/insert_cemetery")
 async def insert_user(user: UserData):
     try:
         db_connection = connect_to_db(db_name=db_name, db_user=db_user, db_password=db_password)
@@ -46,14 +45,13 @@ async def insert_user(user: UserData):
 
         params = {
             "name": user.name,
-            "posts": user.posts,
             "location": user.location,
             "geo": f'SRID=4326;POINT({coords[1]} {coords[0]})'
         }
 
         sql_query = text("""
-                         insert into users (name, posts, location, geo)
-                         values (:name, :posts, :location, :geo); 
+                         insert into cemetery (name, location, geo)
+                         values (:name, :location, :geo); 
                          """)
 
         with db_connection.connect() as conn:
@@ -67,13 +65,3 @@ async def insert_user(user: UserData):
         raise e
 
     return {"statu": 1}
-
-
-"""
-konfiguracja geoserwera z 10 warstwami BDOT10K
-na podstawie konfiguracji przygotować konfigurację usługi WMS
-zrobić sprawozdanie
-
-dołożyć do konfiguracji, którą mamy(remote) dodać fast api
-do 9.01
-"""
