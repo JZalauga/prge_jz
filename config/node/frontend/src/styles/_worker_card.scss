@@ -1,0 +1,26 @@
+.worker-card {
+    background-color: $background-color;
+    border-radius: 15px !important;
+    overflow: hidden;
+
+    .worker-card__image {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .worker-card__content {
+        background-color: $text-color; // Białe tło etykiety zgodnie ze wzorem
+        text-align: center;
+        padding: 15px !important;
+    }
+
+    .worker-card__name {
+        color: $background-color;
+        font-weight: 600;
+        margin-bottom: 4px ;
+    }
+
+    .worker-card__location {
+        color: $background-color;
+    }
+}

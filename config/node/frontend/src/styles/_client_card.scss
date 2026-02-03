@@ -1,0 +1,26 @@
+.client-card {
+    background-color: $background-color;
+    border-radius: 15px !important;
+    overflow: hidden;
+
+    .client-card__image {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .client-card__content {
+        background-color: $text-color; // Białe tło etykiety zgodnie ze wzorem
+        text-align: center;
+        padding: 15px !important;
+    }
+
+    .client-card__name {
+        color: $background-color;
+        font-weight: 600;
+        margin-bottom: 4px ;
+    }
+
+    .client-card__location {
+        color: $background-color;
+    }
+}
