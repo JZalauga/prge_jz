@@ -30,10 +30,10 @@ const NewCemetery = () => {
             });
 
             if (response.ok) {
-                setStatus({ type: 'success', message: 'Użytkownik dodany pomyślnie!' });
-                setFormData({ name: '', location: '' }); // Reset formularza
+                setStatus({ type: 'success', message: 'Dodano cmentarz' });
+                setFormData({ name: '', location: '' }); 
             } else {
-                throw new Error('Błąd serwera podczas dodawania');
+                throw new Error('Błąd podczas dodawania');
             }
         } catch (error) {
             setStatus({ type: 'error', message: error.message });
@@ -79,7 +79,12 @@ const NewCemetery = () => {
                     </Button>
 
                     {status.message && (
-                        <Alert severity={status.type} sx={{ mt: 2 }}>
+                        <Alert severity={status.type} sx={{ mt: 2 }}
+                        sx = {{
+                            backgroundColor: 'transparent',
+                            color: '#648643',
+                            fontSize: {xs: '1rem', md: '1.4rem'}
+                            }}>
                             {status.message}
                         </Alert>
                     )}

@@ -13,6 +13,7 @@ $white: #ffffff;
         margin-bottom: 50px !important;
         font-weight: 700;
         text-transform: uppercase;
+        font-size: clamp(2rem, 10vw, 6rem);
     }
 
     .list-loader {
@@ -26,9 +27,11 @@ $white: #ffffff;
 
 .cemetery-card {
     background-color: $background-color;
-    border-radius: 15px !important;
+    border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 98%;
+    //height: 800px;
 
     //&:hover {
         //transform: translateY(-8px);
@@ -36,7 +39,7 @@ $white: #ffffff;
     //}
 
     &__image {
-        height: 200px;
+        height: 100%;
         object-fit: cover;
     }
 

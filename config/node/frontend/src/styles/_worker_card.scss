@@ -2,6 +2,10 @@
     background-color: $background-color;
     border-radius: 15px !important;
     overflow: hidden;
+    width: 100%;
+    align-items: center;
+
+
 
     .worker-card__image {
         height: 200px;

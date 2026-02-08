@@ -5,7 +5,6 @@ import { Link } from "react-router";
 function Home(props) {
     return (
         <Box className='home'>
-            {/* Połączony tytuł dla lepszego efektu wizualnego */}
             <Typography variant="h1" className='home__title'>
                 GEOPORTAL<br />CMENTARZY
             </Typography>
@@ -17,14 +16,20 @@ function Home(props) {
                 to='/services'
                 disableElevation 
                 sx={{
-                    // Wykorzystujemy Twoje kody kolorów bezpośrednio
                     backgroundColor: '#648643',
                     color: '#262626',
                     borderRadius: '20px',
-                    padding: '12px 60px',
                     fontWeight: 700,
+                    padding:{
+                        xs: '5px 40px',
+                        md: '12px 60px',
+                    },
+                    fontsize:{
+                        xs: '1rem',
+                        md: '1.4rem'
+                    },
                     '&:hover': {
-                        backgroundColor: '#759a52', // Nieco jaśniejszy zielony
+                        backgroundColor: '#759a52',
                     },
                 }}
             >

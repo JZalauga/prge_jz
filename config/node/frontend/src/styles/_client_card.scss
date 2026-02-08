@@ -2,9 +2,12 @@
     background-color: $background-color;
     border-radius: 15px !important;
     overflow: hidden;
+    width: 100%;
+    align-items: center;
+
 
     .client-card__image {
-        height: 200px;
+        height: 100%;
         object-fit: cover;
     }
 
