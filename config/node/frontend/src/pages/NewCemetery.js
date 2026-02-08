@@ -79,8 +79,9 @@ const NewCemetery = () => {
                     </Button>
 
                     {status.message && (
-                        <Alert severity={status.type} sx={{ mt: 2 }}
+                        <Alert severity={status.type}
                         sx = {{
+                            mt: 2,
                             backgroundColor: 'transparent',
                             color: '#648643',
                             fontSize: {xs: '1rem', md: '1.4rem'}
